@@ -4,18 +4,20 @@ Effortlogger is an effort estimation tool created to make agile sprints and scru
 
 # Important files 📁 -
 
-1. pom.xml -> resolves dependecnies
-2. hello-view.fxml -> builds the UI
+1. pom.xml -> Resolves dependencies
+2. hello-view.fxml -> Builds the UI (Sets the scene for main window)
 3. HelloController.java -> Interacts with the event listeners in UI
 4. HelloApplication.java -> Combines and runs the application
+5. PlanningPoker.fxml -> Sets the scene for the Planning Poker window
+6. PlanningPoker.java -> Controller java class to interact with the event listeners in Planning Poker window
 
 # EffortLogger so far.. ✅ -
 
 1. We have a working user authentication UI that responds to the user inputs and directs them to the planning poker window if the authentication is successful.
    
-2. No database is linked as of now so all the authentication verifications are done using a 2-D array of strings. Username is <ASURITE-ID-WITHOUT-NUMBERS> e.g. 'rsharma' or 'ddiyora' and password is first and lasr name in pascal case (i.e. 'TanayJaiman' or 'DakshDiyora') read in-line comments for more details.
+2. No database is linked as of now so all the authentication verifications are done using a 2-D array of strings. Username is (ASURITE-ID-WITHOUT-NUMBERS) e.g. 'rsharma' or 'ddiyora' and password is first and lasr name in pascal case (i.e. 'TanayJaiman' or 'DakshDiyora') read in-line comments for more details.
    
-3. No implemtations on Planning Poker window so far, only displays 'Planning Poker' as of now but they have been successfully linked to only show on authentication being passed.
+3. No implementations on Planning Poker window so far, only displays 'Planning Poker' as of now but they have been successfully linked to only show on authentication being passed.
 
 # Implementations required (11/12 - Sunday) ⏳ -
 
@@ -33,11 +35,11 @@ Effortlogger is an effort estimation tool created to make agile sprints and scru
 
 # How to use 💻 - 
 
-1. Import the files by either ssh-ing into the repository (for this on mac, go to the repository on github and select the code dropdown, copy the ssh and insert into terminal) or downloading and importing the files
+1. Import the files by either ssh-ing into the repository (for this on mac, go to the repository on github and select the code dropdown, copy the ssh and insert into terminal) or by downloading and importing the files
 
-2. Run the HelloApplication.java file `javac HelloApplication.java` to compile the file and `/HelloApplication` to run it, if permission errors arise use `chmod +x HelloApplication` and try running again.
+2. Run the HelloApplication.java file `javac HelloApplication.java` to compile the file and `/HelloApplication` to run it, if permission errors arise use `sudo chmod +x HelloApplication` and try running again.
 
-3. Most of the work is going to be in hello-view.fxml to build the UI/UX or HelloController.java to interact with the various event listeners.
+3. Most of the work is going to be in hello-view.fxml or PlanningPoker.fxml to build the UI/UX or HelloController.java or PlanningPoker.java to interact with the various event listeners.
 
 # Notes 📝 - 
 
