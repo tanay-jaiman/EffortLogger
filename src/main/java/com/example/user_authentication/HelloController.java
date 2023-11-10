@@ -7,11 +7,19 @@
 
 package com.example.user_authentication;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class HelloController {
@@ -20,8 +28,8 @@ public class HelloController {
     // string[i][1] -> Password
     // for i in {0, 1, 2, ...., n - 1} where n is the number of employees permissible
     String[][] users = new String[][]{{"tjaiman", "TanayJaiman"}, {"ddiyora", "DakshDiyora"},
-            {"hkamma", "HarshithKamma"}, {"asthombre", "Adwait Thombre"},
-            {"rsharma", "Rohit Sharma"}};
+            {"hkamma", "HarshithKamma"}, {"asthombre", "AdwaitThombre"},
+            {"rsharma", "RohitSharma"}};
 
     /*
         We plan to expand the database to more than 5 using SQL and a database
@@ -37,6 +45,18 @@ public class HelloController {
     @FXML
     private PasswordField password_input; // Takes in the password as a string input
 
+    /*
+        Resets the current window and displays the window for the application once authentication is passed
+    */
+    @FXML
+    protected void authentication_passed(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlanningPoker.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+        stage.setTitle("User Authentication passed!");  // Screen Title
+        stage.setScene(scene);
+        stage.show();
+    }
+
     @FXML
     protected void onSubmitButtonClick() {
         // Capture the username and password provided.
@@ -51,6 +71,17 @@ public class HelloController {
                 // i.e. Authentication is successful
                 if (Objects.equals(users[i][1], password)) {
                     authentication_text.setText("Authentication Successful!");
+
+                    try {
+                        Window window = authentication_text.getScene().getWindow();
+                        window.hide();
+                        authentication_passed(new Stage());
+                    }
+
+                    catch (Exception e) {
+                        authentication_text.setText("An unexpected error occurred!");
+                    }
+
                     return;
                 }
 
@@ -89,6 +120,4 @@ public class HelloController {
                 - "tja1"    and "anystring"
                 - "athom"   and "anotherstring"
      */
-
-
 }
