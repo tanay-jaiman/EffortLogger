@@ -52,7 +52,7 @@ public class HelloController {
     protected void authentication_passed(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlanningPoker.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 600);
-        stage.setTitle("User Authentication passed!");  // Screen Title
+        stage.setTitle("Planning Poker");  // Screen Title
         stage.setScene(scene);
         stage.show();
     }
