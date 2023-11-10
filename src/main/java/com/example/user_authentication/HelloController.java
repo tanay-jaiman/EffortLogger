@@ -28,8 +28,8 @@ public class HelloController {
     // string[i][1] -> Password
     // for i in {0, 1, 2, ...., n - 1} where n is the number of employees permissible
     String[][] users = new String[][]{{"tjaiman", "TanayJaiman"}, {"ddiyora", "DakshDiyora"},
-            {"hkamma", "HarshithKamma"}, {"asthombre", "Adwait Thombre"},
-            {"rsharma", "Rohit Sharma"}};
+            {"hkamma", "HarshithKamma"}, {"asthombre", "AdwaitThombre"},
+            {"rsharma", "RohitSharma"}};
 
     /*
         We plan to expand the database to more than 5 using SQL and a database
@@ -45,6 +45,9 @@ public class HelloController {
     @FXML
     private PasswordField password_input; // Takes in the password as a string input
 
+    /*
+        Resets the current window and displays the window for the application once authentication is passed
+    */
     @FXML
     protected void authentication_passed(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlanningPoker.fxml"));
