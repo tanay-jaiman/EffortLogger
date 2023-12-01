@@ -7,17 +7,31 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ Entry point for the User Authentication application.
+ This class sets up the JavaFX stage and loads the FXML for the UI.
+ */
 public class HelloApplication extends Application {
+
+    private static final String FXML_FILE = "hello-view.fxml";
+    private static final int SCENE_WIDTH = 500;
+    private static final int SCENE_HEIGHT = 450;
+
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 450);
-        stage.setTitle("User Authentication");  // Screen Title
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage stage) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(FXML_FILE));
+            Scene scene = new Scene(fxmlLoader.load(), SCENE_WIDTH, SCENE_HEIGHT);
+            stage.setTitle("User Authentication");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Consider a more sophisticated error handling
+        }
     }
 
     public static void main(String[] args) {
-        launch();
+        // Additional initializations can be done here
+        launch(args);
     }
 }
